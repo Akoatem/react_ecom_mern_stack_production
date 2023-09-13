@@ -1,3 +1,4 @@
+
 import categoryModel from "../models/categoryModel.js";
 import slugify from "slugify";
 export const createCategoryController = async (req, res) => {
@@ -26,8 +27,8 @@ export const createCategoryController = async (req, res) => {
     console.log(error);
     res.status(500).send({
       success: false,
-      error,
-      message: "Error in Category",
+      errro,
+      message: "Errro in Category",
     });
   }
 };
