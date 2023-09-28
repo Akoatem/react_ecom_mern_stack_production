@@ -7,7 +7,6 @@ import slugify from "slugify";
 import braintree from "braintree";
 import dotenv from "dotenv";
 
-
 dotenv.config();
 
 //payment gateway
@@ -18,9 +17,6 @@ var gateway = new braintree.BraintreeGateway({
   privateKey: process.env.BRAINTREE_PRIVATE_KEY,
 });
 
-
-
-// create product
 export const createProductController = async (req, res) => {
   try {
     const { name, description, price, category, quantity, shipping } =
@@ -89,7 +85,6 @@ export const getProductController = async (req, res) => {
     });
   }
 };
-
 // get single product
 export const getSingleProductController = async (req, res) => {
   try {
@@ -148,7 +143,7 @@ export const deleteProductController = async (req, res) => {
   }
 };
 
-//upate product
+//upate producta
 export const updateProductController = async (req, res) => {
   try {
     const { name, description, price, category, quantity, shipping } =
@@ -219,7 +214,7 @@ export const productFiltersController = async (req, res) => {
   }
 };
 
- // product count
+// product count
 export const productCountController = async (req, res) => {
   try {
     const total = await productModel.find({}).estimatedDocumentCount();
@@ -237,7 +232,7 @@ export const productCountController = async (req, res) => {
   }
 };
 
- // product list base on page
+// product list base on page
 export const productListController = async (req, res) => {
   try {
     const perPage = 6;
@@ -285,7 +280,7 @@ export const searchProductController = async (req, res) => {
   }
 };
 
-//  similar products
+// similar products
 export const realtedProductController = async (req, res) => {
   try {
     const { pid, cid } = req.params;
@@ -311,7 +306,7 @@ export const realtedProductController = async (req, res) => {
   }
 };
 
-// get products by catgory
+// get prdocyst by catgory
 export const productCategoryController = async (req, res) => {
   try {
     const category = await categoryModel.findOne({ slug: req.params.slug });
@@ -331,8 +326,6 @@ export const productCategoryController = async (req, res) => {
   }
 };
 
-
-
 //payment gateway api
 //token
 export const braintreeTokenController = async (req, res) => {
@@ -349,7 +342,7 @@ export const braintreeTokenController = async (req, res) => {
   }
 };
 
-payment
+//payment
 export const brainTreePaymentController = async (req, res) => {
   try {
     const { nonce, cart } = req.body;
@@ -382,5 +375,3 @@ export const brainTreePaymentController = async (req, res) => {
     console.log(error);
   }
 };
-
-
