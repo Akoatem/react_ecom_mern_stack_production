@@ -7,6 +7,7 @@ import slugify from "slugify";
 import braintree from "braintree";
 import dotenv from "dotenv";
 
+
 dotenv.config();
 
 //payment gateway
@@ -16,6 +17,8 @@ var gateway = new braintree.BraintreeGateway({
   publicKey: process.env.BRAINTREE_PUBLIC_KEY,
   privateKey: process.env.BRAINTREE_PRIVATE_KEY,
 });
+
+
 
 // create product
 export const createProductController = async (req, res) => {
@@ -328,6 +331,8 @@ export const productCategoryController = async (req, res) => {
   }
 };
 
+
+
 //payment gateway api
 //token
 export const braintreeTokenController = async (req, res) => {
@@ -344,7 +349,7 @@ export const braintreeTokenController = async (req, res) => {
   }
 };
 
-//payment
+payment
 export const brainTreePaymentController = async (req, res) => {
   try {
     const { nonce, cart } = req.body;
@@ -377,3 +382,5 @@ export const brainTreePaymentController = async (req, res) => {
     console.log(error);
   }
 };
+
+
